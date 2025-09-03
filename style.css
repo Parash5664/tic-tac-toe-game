@@ -1,0 +1,256 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+/* Header styles */
+header h1 {
+    color: #4a5568;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    background: #f7fafc;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.player-label {
+    font-weight: bold;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2d3748;
+}
+
+/* Game info styles */
+.game-info {
+    margin-bottom: 20px;
+}
+
+.current-player {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4a5568;
+    margin-bottom: 10px;
+}
+
+#playerTurn {
+    color: #667eea;
+    font-size: 1.3rem;
+}
+
+.game-status {
+    font-size: 1.1rem;
+    font-weight: bold;
+    min-height: 25px;
+    margin-bottom: 10px;
+}
+
+.game-status.winner {
+    color: #48bb78;
+    animation: bounce 0.6s ease-in-out;
+}
+
+.game-status.draw {
+    color: #ed8936;
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    80% { transform: translateY(-5px); }
+}
+
+/* Game board styles */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    max-width: 300px;
+    margin: 0 auto 30px;
+    background: #e2e8f0;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border: 2px solid #cbd5e0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.cell:hover {
+    background: #f7fafc;
+    border-color: #667eea;
+    transform: scale(1.05);
+}
+
+.cell.x {
+    color: #e53e3e;
+    background: #fed7d7;
+    border-color: #e53e3e;
+}
+
+.cell.o {
+    color: #3182ce;
+    background: #bee3f8;
+    border-color: #3182ce;
+}
+
+.cell.winning {
+    animation: pulse 1s infinite;
+    background: #c6f6d5 !important;
+    border-color: #48bb78 !important;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Button styles */
+.game-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.restart-btn {
+    background: #667eea;
+    color: white;
+}
+
+.restart-btn:hover {
+    background: #5a67d8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.reset-score-btn {
+    background: #ed8936;
+    color: white;
+}
+
+.reset-score-btn:hover {
+    background: #dd6b20;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(237, 137, 54, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Footer styles */
+footer {
+    margin-top: 20px;
+    color: #718096;
+    font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .score-board {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .score {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .cell {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Game over overlay effect */
+.game-board.game-over .cell:not(.winning) {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.game-board.game-over .cell:not(.winning):hover {
+    transform: none;
+    background: white;
+    border-color: #cbd5e0;
+}
