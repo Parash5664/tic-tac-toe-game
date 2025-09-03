@@ -1,3 +1,6 @@
+# tic-tac-toe-game
+A beautiful, interactive Tic-Tac-Toe game with modern UI and score tracking
+>>>>>>> ad32b3f5c23c54ca86ae3706558cd4cc90f8bac4
 # Tic-Tac-Toe Game
 
 A beautiful, interactive Tic-Tac-Toe game for two players with a modern web interface.
@@ -73,3 +76,7 @@ No installation required! Simply:
 3. Start playing!
 
 Enjoy your Tic-Tac-Toe game! 🎮
+=======
+# tic-tac-toe-game
+A beautiful, interactive Tic-Tac-Toe game with modern UI and score tracking
+>>>>>>> ad32b3f5c23c54ca86ae3706558cd4cc90f8bac4
